@@ -1,0 +1,1 @@
+export const URL_API = 'http://pokeapi.co/api/v2/';

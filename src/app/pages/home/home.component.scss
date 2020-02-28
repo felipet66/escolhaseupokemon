@@ -20,7 +20,6 @@
 .info-pokemons {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 40px;
     &__list {
         width: 50%;
@@ -30,6 +29,7 @@
         flex-wrap: wrap;
         .box{
             padding: 10px;
+            text-align: center;
         }
     }
     &__choose {
