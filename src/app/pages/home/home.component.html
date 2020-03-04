@@ -16,8 +16,17 @@
     </div>
   </div>
   <div class="info-pokemons__choose">
-    <div class="box">
+    <div class="box" *ngIf="pokemonSelected.length === 0">
       <img width="75%" src="https://static.quizur.com/i/b/5aea1330b75d38.060055205aea1330a698a8.23241955.jpg" alt="">
+    </div>
+    <div class="box" *ngIf="pokemonSelected.length !== 0">
+      <img [src]="pokemonSelected.sprites.back_default" alt="">
+      <img [src]="pokemonSelected.sprites.back_shiny_female" alt="">
+      <img [src]="pokemonSelected.sprites.front_default" alt="">
+      <img [src]="pokemonSelected.sprites.front_shiny_female" alt="">
+    </div>
+    <div class="box" *ngIf="pokemonSelected.length !== 0">
+        <img [src]="pokemonSelected.sprites.front_default" alt="" width="200">
     </div>
   </div>
 </section>

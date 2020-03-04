@@ -11,7 +11,8 @@ import { Pokemon } from '../shared/models/pokemon.model';
   providers: [PokemonsService]
 })
 export class HomeComponent implements OnInit {
-  private listPokemons: ListPokemonsResponse[];
+  private listPokemons: ListPokemonsResponse[] = [];
+  private pokemonSelected: any = [];
   constructor(
     private pokemonsService: PokemonsService
   ) { }
@@ -33,7 +34,8 @@ export class HomeComponent implements OnInit {
       .getPokemonId(name)
       .subscribe(
         (res: Pokemon[]) => {
-          console.log(res);
+          console.log(res)
+          this.pokemonSelected = res
         },
         (error: HttpErrorResponse) => {
           this.handleError(error);

@@ -22,24 +22,34 @@
     justify-content: space-between;
     padding: 40px;
     &__list {
-        width: 50%;
+        width: 60%;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         flex-wrap: wrap;
         .box{
+            border: 3px solid lightblue;
+            border-radius: 10px;
+            color: blue;
             padding: 10px;
+            margin: 10px;
             text-align: center;
+            min-width: 110px;
             img {
                 cursor: pointer;
+            }
+            &:hover {
+                background-color: lightblue !important;
             }
         }
     }
     &__choose {
-        width: 50%;
+        width: 40%;
         .box {
             display: flex;
             justify-content: center;
+            align-items: center;
+            padding: 40px;
         }
     }
 }
