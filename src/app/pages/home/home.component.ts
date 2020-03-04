@@ -13,6 +13,7 @@ import { Pokemon } from '../shared/models/pokemon.model';
 export class HomeComponent implements OnInit {
   private listPokemons: ListPokemonsResponse[] = [];
   private pokemonSelected: any = [];
+  private loader = false;
   constructor(
     private pokemonsService: PokemonsService
   ) { }
@@ -30,12 +31,15 @@ export class HomeComponent implements OnInit {
       )
   }
   sendRequest (name: String) {
+    this.loader = true;
     this.pokemonsService
       .getPokemonId(name)
       .subscribe(
         (res: Pokemon[]) => {
-          console.log(res)
-          this.pokemonSelected = res
+          setTimeout(() => {
+            this.pokemonSelected = res;
+            this.loader = false;
+          }, 1500)
         },
         (error: HttpErrorResponse) => {
           this.handleError(error);
