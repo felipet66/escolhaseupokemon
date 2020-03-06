@@ -7,12 +7,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { PokeCardComponent } from './pages/shared/components/poke-card/poke-card.component';
+import { LoaderComponent } from './pages/shared/components/loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PokeCardComponent
+    PokeCardComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
