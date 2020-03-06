@@ -12,13 +12,16 @@ import { Pokemon } from '../shared/models/pokemon.model';
 })
 export class HomeComponent implements OnInit {
   private listPokemons: ListPokemonsResponse[] = [];
-  private pokemonSelected: any = [];
+  private pokemonSelected: Pokemon[] = [];
   private loader = false;
   constructor(
     private pokemonsService: PokemonsService
   ) { }
 
-  ngOnInit() {
+  ngOnInit () {
+    this.getPokemons();
+  }
+  getPokemons () {
     this.pokemonsService
       .getListPokemons()
       .subscribe(
@@ -28,25 +31,15 @@ export class HomeComponent implements OnInit {
         (error: HttpErrorResponse) => {
           this.handleError(error);
         }
-      )
+      );
   }
-  sendRequest (name: String) {
-    this.loader = true;
-    this.pokemonsService
-      .getPokemonId(name)
-      .subscribe(
-        (res: Pokemon[]) => {
-          setTimeout(() => {
-            this.pokemonSelected = res;
-            this.loader = false;
-          }, 1500)
-        },
-        (error: HttpErrorResponse) => {
-          this.handleError(error);
-        }
-      )
+  activeLoader (res) {
+    this.loader = res;
   }
-  handleError(error: HttpErrorResponse): void {
+  responsePokemon (res: any) {
+    this.pokemonSelected = res;
+  }
+  handleError (error: HttpErrorResponse): void {
     console.error(error)
   }
 }

@@ -1,0 +1,8 @@
+.card {
+    background: transparent;
+}
+.poke-card {
+    &__pointer {
+        cursor: pointer;
+    }
+}
